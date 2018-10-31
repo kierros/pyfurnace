@@ -1,12 +1,10 @@
-import time
 import os
 from keypad import Keypad
 
 from machine import I2C, Pin
 from pcf8574 import PCF8574
-from machine import I2C, Pin
 from i2c_lcd import I2cLcd
-from menu import MenuItem, Menu, Navigation
+from menu import Menu, Navigation
 from main import Storrage
 
 
@@ -34,11 +32,13 @@ lcd = I2cLcd(i2c, LCD_ADDR, 2, 16)
 # f.close()
 storrage = Storrage()
 
+
 def prep(banner):
     lcd.clear()
     lcd.move_to(0, 0)
     lcd.putstr(banner)
     lcd.move_to(0, 1)
+
 
 def create_program():
 
@@ -54,6 +54,7 @@ def create_program():
         return 1
     else:
         return 0
+
 
 def load_program():
 
@@ -82,7 +83,7 @@ def load_program():
         key = keypad.getkey()
         if key == '8':
             if f.tell() > last_byte:
-                f.seek(0,0)
+                f.seek(0, 0)
             start = f.tell()
             prog = f.readline()
             prepln(prog)
@@ -99,6 +100,7 @@ def load_program():
             return prog
         else:
             pass
+
 
 menu_top_items = [
         'Programs',

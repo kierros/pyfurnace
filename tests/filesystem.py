@@ -52,8 +52,8 @@ def search_alpha_pos() -> int:
         pos = S.__search_alpha_pos(line, S.programs)
         if pos != searches[line]:
             print(
-                err
-                + 'Line pos search result did not match assumed pos\n'
+                err +
+                'Line pos search result did not match assumed pos\n'
                 'line \"{}\" should be at pos {} not {}'.format(
                     line, searches[line], pos
                 )

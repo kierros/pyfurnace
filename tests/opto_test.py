@@ -1,5 +1,3 @@
-import time
-
 from machine import I2C, Pin
 from pcf8574 import PCF8574
 

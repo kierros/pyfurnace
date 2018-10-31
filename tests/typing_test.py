@@ -1,11 +1,11 @@
 from machine import I2C, Pin
-from time import sleep_ms
 from pcf8574 import PCF8574
 from i2c_lcd import I2cLcd
 from keypad import Keypad, Exit
 
 DEFAULT_I2C_ADDR = 60
 ADDR = 56
+
 
 def test_main():
     i2c = I2C(scl=Pin(5), sda=Pin(4), freq=400000)
@@ -39,5 +39,6 @@ def test_main():
         print("Got {} as input".format(word))
     except Exit:
         print('Received exit')
+
 
 test_main()

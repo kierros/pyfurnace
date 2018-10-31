@@ -40,9 +40,9 @@ class PCF8574:
         bit_mask = 1 << pin
         self._input_mask &= ~bit_mask
         self._output = (
-            self._output
-            | bit_mask if value else self._output
-            & (~bit_mask)
+            self._output |
+            bit_mask if value else self._output &
+            (~bit_mask)
         )
         self._write()
 
